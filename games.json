@@ -1,0 +1,86 @@
+{
+    "_comment": [
+        "                 Hello World!                                                                          ",
+        "       ...............................                                                                 ",
+        "       .   Code du launcher Tabris,  .                                                                 ",
+        "       .   Un launcher fait avec     .                                                                 ",
+        "       .   Electron, par VoidSplit.  .                                                                 ",
+        "       .........................................................................................       ",
+        "       .       Version 1.0.1         . Par VoidSplit -- Projet sur GitHub                      .       ",
+        "       .........................................................................................       ",
+        "       .       Fichier Json du site, qui stocke les informations des jeux                      .       ",
+        "       .........................................................................................       "
+    ],
+    "game1": {
+        "name": "Red Dead Redemption II",
+        "id": "1",
+        "cardImage": "images/mobiles/rdr2.jpg",
+        "backImage": "images/complete/rdr2.jpg",
+        "gameDirectory": "",
+        "shop": false,
+        "version": "",
+        "update": false
+    },
+    "game2": {
+        "name": "Rocket League",
+        "id": "2",
+        "cardImage": "images/mobiles/rocketLeague.jpg",
+        "backImage": "images/complete/rocketLeague.jpg",
+        "gameDirectory": "",
+        "shop": false,
+        "version": "",
+        "update": false
+    },
+    "game3": {
+        "name": "Zelda breath of the wild",
+        "id": "3",
+        "cardImage": "images/mobiles/botw.jpg",
+        "backImage": "images/complete/botw.jpg",
+        "gameDirectory": "",
+        "shop": false,
+        "version": "",
+        "update": false
+    },
+    "game4": {
+        "name": "overwatch",
+        "id": "4",
+        "cardImage": "images/mobiles/overwatch.jpg",
+        "backImage": "images/complete/overwatch.jpg",
+        "gameDirectory": "",
+        "shop": false,
+        "version": "",
+        "update": false
+    },
+    "game5": {
+        "name": "Assasin's creen valhalla",
+        "id": "5",
+        "cardImage": "images/mobiles/assasinscreedvalhalla.jpg",
+        "backImage": "images/complete/assasinscreedvalhalla.jpg",
+        "gameDirectory": "",
+        "shop": false,
+        "version": "",
+        "update": false
+    },
+    "game6": {
+        "name": "Mario Galaxy",
+        "id": "6",
+        "cardImage": "images/mobiles/mariogalaxy.jpg",
+        "backImage": "images/complete/mariogalaxy.jpg",
+        "gameDirectory": "",
+        "shop": false,
+        "version": "",
+        "update": false
+    },
+    "game7": {
+        "name": "Osu",
+        "id": "7",
+        "cardImage": "images/mobiles/osu.png",
+        "backImage": "images/complete/osu.jpg",
+        "gameDirectory": "E:/Jeux/Osu/osu!.exe",
+        "shop": false,
+        "version": "",
+        "update": false
+    }
+    
+}
+

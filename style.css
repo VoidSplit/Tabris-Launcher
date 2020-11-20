@@ -1,0 +1,632 @@
+/*       Hello World!    
+...............................
+.   Code du launcher Tabris,  .
+.   Un launcher fait avec     .
+.   Electron, par VoidSplit.  .
+.........................................................................................
+.       Version 1.0.1         . Par VoidSplit -- Projet sur GitHub                      .
+.........................................................................................
+.       Fichier Css du site, évitez de trop toucher à ce fichier pour éviter des        .
+.       problèmes de design.                                                            .
+.........................................................................................
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
+:root {
+    --primaryGray: #272727;
+    --secondaryGray: #363636;
+    --terceryGray: #5d5d5d;
+    --primaryFontColor: #d4d4d4;
+    --secondaryFontColor: #8d8d8d;
+    --PurpleColor: #6101df;
+    --GrayColor: #5d5d5d;
+    --RedColor: #c50d0d;
+    --BlueColor: #0d38c5;
+    --GreenColor: #1a8f16;
+    --BlackColor: #0f0f0f;
+    --WhiteColor: #eeeeee;
+    --YellowColor: #caca00;
+    --menuTab1: #313131;
+    --menuTab2: #363636;
+    --menuTab3: #414141;
+    --menuTab4: #494949;
+    --menuTabFinal: #505050;
+}
+
+@keyframes menuOpenTab1 {
+    from {
+        height: 0;
+        width: 0;
+    }
+    to {
+        height: 25vw;
+        width: 25vw;
+    }
+}
+@keyframes menuOpenTab2 {
+    from {
+        height: 0;
+        width: 0;
+    }
+    to {
+        height: 50vw;
+        width: 50vw;
+    }
+}
+@keyframes menuOpenTab3 {
+    from {
+        height: 0;
+        width: 0;
+    }
+    to {
+        height: 75vw;
+        width: 75vw;
+    }
+}
+@keyframes menuOpenTab4 {
+    from {
+        height: 0;
+        width: 0;
+    }
+    to {
+        height: 100vw;
+        width: 100vw;
+    }
+}
+@keyframes menuOpenTabFinal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes menuCloseTab1 {
+    from {
+        height: 25vw;
+        width: 25vw;
+    }
+    to {
+        height: 0;
+        width: 0;
+    }
+}
+@keyframes menuCloseTab2 {
+    from {
+        height: 50vw;
+        width: 50vw;
+    }
+    to {
+        height: 0;
+        width: 0;
+    }
+}
+@keyframes menuCloseTab3 {
+    from {
+        height: 75vw;
+        width: 75vw;
+    }
+    to {
+        height: 0;
+        width: 0;
+    }
+}
+@keyframes menuCloseTab4 {
+    from {
+        height: 100vw;
+        width: 100vw;
+    }
+    to {
+        height: 0;
+        width: 0;
+    }
+}
+@keyframes menuCloseTabFinal {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes circle-animation {
+    0%,
+    25% {
+      stroke-dashoffset: 280;
+      transform: rotate(0);
+    }
+    
+    50%,
+    75% {
+      stroke-dashoffset: 75;
+      transform: rotate(45deg);
+    }
+    
+    100% {
+      stroke-dashoffset: 280;
+      transform: rotate(360deg);
+    }
+}
+@keyframes svg-animation {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg)
+    }
+}
+/*! Loader !*/
+.loader {
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    bottom: 25px;
+    right: 25px;
+    z-index: 10;
+}
+svg {
+    animation: 2s linear infinite svg-animation;
+    max-width: 50px;
+}
+
+circle {
+    animation: 1.4s ease-in-out infinite both circle-animation;
+    display: block;
+    fill: transparent;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 280;
+    stroke-width: 2px;
+    transform-origin: 50% 50%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+/*! Page principale !*/
+html {
+    perspective: 0px;
+    overflow: hidden;
+}
+body {
+    display: flex;
+}
+.pageContent {
+    background-color: var(--secondaryGray);
+    width: calc(100vw - 100px);
+    height: 100vh;
+}
+.filter {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    transition: .5s background-color;
+    -webkit-transition: .5s background-color;
+    -moz-transition: .5s background-color;
+    -ms-transition: .5s background-color;
+    -o-transition: .5s background-color;
+}
+.filter:hover,
+.gameItem.Hovered .filter {
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+.game {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.gameList {
+    background-color: rgba(36, 36, 36, 0.8);
+    display: flex;
+    height: 100vh;
+    overflow-x: scroll;
+}
+.AddGame i {
+    color: var(--primaryFontColor);
+    margin: calc(250px - 0.5em) calc((((100vw - 100px) / 6) / 2) - 0.45em);
+    font-size: 4em;
+}
+.gameList::-webkit-scrollbar {
+    height: 10px;
+    width: 4px;
+    background-color: var(--secondaryGray);
+}
+.gameList::-webkit-scrollbar-thumb {
+    background-color: var(--primaryGray);
+}
+.gameList::-webkit-scrollbar-thumb:hover {
+    background-color: var(--terceryGray);
+}
+.gameItem {
+    height: 500px;
+    min-width: calc((100vw - 100px) / 6);
+    margin: auto;
+    background-position: center;
+    background-position-y: top;
+    background-size: cover;
+    background-color: var(--primaryGray);
+}
+
+.gameItem:hover,
+.gameItem.Hovered {
+    height: 600px;
+    width: calc((100vw - 100px) / 5);
+}
+.gameItem:hover.AddGame i,
+.gameItem.Hovered.AddGame i {
+    margin: calc(300px - 0.5em) calc((((100vw - 100px) / 6) / 2) - 0.45em);
+}
+.AddGame i {
+    color: var(--primaryFontColor);
+    margin: calc(250px - 0.5em) calc((((100vw - 100px) / 6) / 2) - 0.45em);
+    font-size: 4em;
+}
+.Maj {
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.gameItem:hover.Maj::before,
+.gameItem.Hovered.Maj::before {
+    transform: translateY(calc(578px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -webkit-transform: translateY(calc(578px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -moz-transform: translateY(calc(578px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -ms-transform: translateY(calc(578px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -o-transform: translateY(calc(578px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+}
+.Maj::before {
+    font-family: "FontAwesome";
+    content: '\f019';
+    position: absolute;
+    font-size: 2em;
+    color: var(--primaryFontColor);
+    z-index: 1;
+    transform: translateY(calc(478px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -webkit-transform: translateY(calc(478px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -moz-transform: translateY(calc(478px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -ms-transform: translateY(calc(478px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+    -o-transform: translateY(calc(478px - 0.5em)) translateX(calc(((100vw - 100px) / 6) - 40px));
+}
+.Maj::after {
+    font-family: "Roboto";
+    content: 'Mise a jour disponible';
+    color: var(--primaryFontColor);
+    padding-top: 17px;
+    padding-bottom: 3px;
+    padding-left: 25px;
+    background-color: var(--secondaryGray);
+    position: absolute;
+    width: calc(((100vw - 100px) / 6) - 25px);
+    height: 30px;
+    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+}
+
+.arrowLeft,
+.arrowRight {
+    border: 0;
+    position: absolute;
+    background-color: var(--terceryGray);
+    padding: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    color: var(--primaryFontColor);
+    transition: .2s background-color;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transition: .2s background-color;
+    -moz-transition: .2s background-color;
+    -ms-transition: .2s background-color;
+    -o-transition: .2s background-color;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+    background-color: var(--secondaryGray);
+}
+
+.arrowRight {
+    right: 0;
+}
+/*! Sidebar !*/
+
+.version {
+    color: var(--primaryFontColor);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1.5em;
+    text-align: center;
+    position: absolute;
+    width: 100px;
+    bottom: 15px;
+    border-top: 4px solid var(--terceryGray);
+    padding-top: 15px;
+}
+
+.colorPalette {
+    height: 100px;
+    width: 800px;
+    position: absolute;
+    display: flex;
+    top: 100px;
+    left: 0;
+    padding-left: 100px;
+    background-color: var(--primaryGray);
+    z-index: -1;
+    transform: translateX(-800px);
+    -webkit-transform: translateX(-800px);
+    -moz-transform: translateX(-800px);
+    -ms-transform: translateX(-800px);
+    -o-transform: translateX(-800px);
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    -ms-transition: transform 1s;
+    -o-transition: transform 1s;
+}
+.color-palette-item::after {
+    content: '';
+    left: 0;
+    top: 200px;
+    width: 100px;
+    height: 4px;
+    position: absolute;
+    background-color: var(--terceryGray);
+}
+.colorPalette .color {
+    width: 100px;
+    height: 100px;
+}
+.colorPalette .color .round {
+    background-color: turquoise;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    margin-top: 24px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    -ms-border-radius: 150px;
+    -o-border-radius: 150px;
+}
+.colorPalette .selected,
+.colorPalette .color:hover,
+.colorPalette .color.ColorHovered {
+    background-color: var(--secondaryGray);
+}
+
+.colorPalette .colorGray .round {
+    background-color: var(--GrayColor);
+}
+
+.colorPalette .colorRed .round {
+    background-color: var(--RedColor);
+}
+
+.colorPalette .colorBlue .round {
+    background-color: var(--BlueColor);
+}
+
+.colorPalette .colorGreen .round {
+    background-color: var(--GreenColor);
+}
+
+.colorPalette .colorPurple .round {
+    background-color: var(--PurpleColor);
+}
+
+.colorPalette .colorBlack .round {
+    background-color: var(--BlackColor);
+}
+
+.colorPalette .colorWhite .round {
+    background-color: var(--WhiteColor);
+}
+
+.colorPalette .colorYellow .round {
+    background-color: var(--YellowColor);
+}
+
+.color-palette-item:hover .colorPalette,
+.color-palette-item.checked .colorPalette {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+.sidebar {
+    background-color: var(--primaryGray);
+    height: 100vh;
+    width: 100px;
+    z-index: 2;
+}
+
+.sidebar .item {
+    height: 100px;
+    text-align: center;
+    background-color: var(--primaryGray);
+    color: var(--primaryFontColor);
+}
+.sidebar .item:hover,
+.sidebar .item.Hovered,
+.sidebar .item.ColorHovered {
+    background-color: var(--terceryGray);
+}
+.sidebar .item:hover i.firstIcon,
+.sidebar .item.Hovered i.firstIcon {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+.sidebar .item i {
+    transition: 3s transform;
+    font-size: 3em;
+    margin-top: 25px;
+    -webkit-transition: 3s transform;
+    -moz-transition: 3s transform;
+    -ms-transition: 3s transform;
+    -o-transition: 3s transform;
+}
+
+.circleTab #tab1 {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 0;
+    z-index: 6;
+}
+.circleTab #tab2 {
+    position: absolute;
+    top: 0;
+    z-index: 5;
+}
+.circleTab #tab3 {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 0;
+    z-index: 4; 
+}
+.circleTab #tab4 {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+.circleTab #tabFinal {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.invisible {
+    display: none;
+}
+.visible {
+    display: block;
+}
+
+.closeTabs {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    color: var(--primaryFontColor);
+    font-size: 4em;
+    width: 100px;
+    height: 100px;
+}
+.closeTabs i {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+}
+
+.circleTab #tab1.open {
+    height: 25vw;
+    width: 25vw;
+    background-color: var(--menuTab1);
+    border-bottom-right-radius: 100vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuOpenTab1 1s;
+    -webkit-animation: menuOpenTab1 1s;
+}
+.circleTab #tab2.open {
+    height: 50vw;
+    width: 50vw;
+    background-color:var(--menuTab2);
+    border-bottom-right-radius: 200vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuOpenTab2 1s;
+    -webkit-animation: menuOpenTab2 1s;
+}
+.circleTab #tab3.open {
+    height: 75vw;
+    width: 75vw;
+    background-color: var(--menuTab3);
+    border-bottom-right-radius: 300vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuOpenTab3 1s;
+    -webkit-animation: menuOpenTab3 1s;
+}
+.circleTab #tab4.open {
+    height: 100vw;
+    width: 100vw;
+    background-color: var(--menuTab4);
+    border-bottom-right-radius: 300vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuOpenTab4 1s;
+    -webkit-animation: menuOpenTab4 1s;
+}
+.circleTab #tabFinal.open {
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+    background-color: var(--menuTabFinal);
+    animation: menuOpenTabFinal 1s;
+    -webkit-animation: menuOpenTabFinal 1s;
+}
+
+.circleTab #tab1.close {
+    height: 0;
+    width: 0;
+    background-color: var(--menuTab1);
+    border-bottom-right-radius: 100vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuCloseTab1 1s;
+    -webkit-animation: menuCloseTab1 1s;
+}
+.circleTab #tab2.close {
+    height: 0;
+    width: 0;
+    background-color:var(--menuTab2);
+    border-bottom-right-radius: 200vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuCloseTab2 1s;
+    -webkit-animation: menuCloseTab2 1s;
+}
+.circleTab #tab3.close {
+    height: 0;
+    width: 0;
+    background-color: var(--menuTab3);
+    border-bottom-right-radius: 300vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuCloseTab3 1s;
+    -webkit-animation: menuCloseTab3 1s;
+}
+.circleTab #tab4.close {
+    height: 0;
+    width: 0;
+    background-color: var(--menuTab4);
+    border-bottom-right-radius: 300vh;
+    box-shadow: 0 0px 80px rgba(15, 15, 15, 0.5);
+    animation: menuCloseTab4 1s;
+    -webkit-animation: menuCloseTab4 1s;
+}
+.circleTab #tabFinal.close {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    background-color: var(--menuTabFinal);
+    animation: menuCloseTabFinal 1s;
+    -webkit-animation: menuCloseTabFinal 1s;
+}
