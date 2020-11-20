@@ -4,4 +4,4 @@ Le but est de faire un launcher open source qui permette de lancer n'importe que
 Il reste encore énormement de travail et ca devient compliqué de tout faire tout seul, c'est pour celà que je met ce projet en open source.
 Vous pouvez donc  modifier à votre guise pour votre utilisation personelle, ou bien aider le projet en proposant un code qui permet de faire progresser le projet.
 
-Seul led fichierd index.js(pour configurer electron), index.html, style.css, et app.js est fournis il faudra donc installer electron soi-meme.
+Seul les fichiers index.js(pour configurer electron), index.html, style.css, et app.js et games.json sont fournis il faudra donc installer electron soi-meme.
