@@ -5,3 +5,4 @@ Il reste encore énormement de travail et ca devient compliqué de tout faire to
 Vous pouvez donc  modifier à votre guise pour votre utilisation personelle, ou bien aider le projet en proposant un code qui permet de faire progresser le projet.
 
 Seul les fichiers index.js(pour configurer electron), index.html, style.css, et app.js et games.json sont fournis il faudra donc installer electron soi-meme.
+
