@@ -10,10 +10,14 @@ Later the launcher will be in c# or c++ so if you want to start the code in c# o
 
 ### What does it look like?
 
-#### As said above everything is Customizable so you can change the whole design if you want, but the basic design is this:
+#### As said above everything is Customizable so you can change the whole design if you want, the basic design is this:
 ![Image of Launcher](https://i.imgur.com/VsjN0BK.png)
 #### But we can very well imagine other designs such as this one:
 ![Image of launcher2](https://i.imgur.com/ztY8k60.png)
+
+### How to change the launcher's design ?
+
+You can imagine having a menu, where you can choose from the built-in design or you can add a json file to customize it.
 
 ```diff 
 - Please consider this code is not optimised! -
