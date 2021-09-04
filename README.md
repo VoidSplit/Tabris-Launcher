@@ -20,6 +20,6 @@ Later the launcher will be in c# or c++ so if you want to start the code in c# o
 You can imagine having a menu, where you can choose from the built-in design or you can add a json file to customize it.
 
 ```diff 
-- Please consider this code is not optimised! -
+- Please consider this code is not optimised and may not work! -
 ```
 
